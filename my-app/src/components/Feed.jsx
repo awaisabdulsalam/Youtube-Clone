@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import SideBar from "./SideBar";
 import Videos from "./Videos";
-import { fetachFromAPI } from "../Utils/fetchFromAPI";
+import { fetchFromAPI } from "../Utils/fetchFromAPI";
 
 const Feed = () => {
 
@@ -10,7 +10,7 @@ const Feed = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetachFromAPI(`search?part=snippet&q=${selectedCategory}`)
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
     .then((data) => {
     //  console.log(data.items)
    return setVideos(data.items)
@@ -26,14 +26,14 @@ const Feed = () => {
           Copyright @Awais
         </Typography>
       </Box>
-      <Box p={2} sx={{ overflowY: "auto" , height: "90vh", flex: 2}}>
+      {/* <Box p={2} sx={{ overflowY: "auto" , height: "90vh", flex: 2}}>
         <Typography fontWeight="bold" mb={2} sx={{ color: "white"}}>
           {selectedCategory} <span style={{ color: "#FC1503"}}>
             Videos
           </span>
         </Typography>
-      </Box>
-      <Videos videos={videos} />
+      </Box> */}
+      <Videos videos={videos} />  
     </Stack>
   )
 }

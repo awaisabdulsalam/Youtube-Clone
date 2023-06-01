@@ -16,13 +16,8 @@ const options = {
   },
 };
 
-export const fetachFromAPI = async (url) => {
-  try {
-    const { data } = await axios.get(`${BASE_URL}/${url}`, options);
-    // console.log(data);
-    return data;
-  } catch (error) {
-    // console.log(error);
-    return "Chal Oye";
-  }
+export const fetchFromAPI = async (url) => {
+  const { data } = await axios.get(`${BASE_URL}/${url}`, options);
+
+  return data;
 };

@@ -5,12 +5,12 @@ import ChannelCard from './ChannelCard';
 const Videos = ({ videos }) => {
   // console.log(videos);
   return (
-    <Stack direction="row" flexWrap="wrap" justifyContent="start">
+    <Stack direction="row" flexWrap="wrap" justifyContent="center">
       {videos.map((items, index) => {
        return  (
        <Box key={index}>
           {items.id.videoId && <VideoCard videos={items} />}
-          {items.id.channelId && <ChannelCard channels={items} />}
+          {items.id.channelId && <ChannelCard channelDetail={items} />}
         </Box>
         )
       })}
