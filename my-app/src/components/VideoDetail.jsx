@@ -15,7 +15,8 @@ const VideoDetail = () => {
       .then((data) => setVideoDetail(data.items[0]));
   }, [id])
 
-
+  const { snippet: { title, channelId, channelTitle }} = videoDetail;
+  if (!videoDetail?.snippet) return "Loading"; 
   return (
     <Box minHeight="95vh" border="5px solid red">
       <Stack direction={{ xs: "column", md: "row"}} border="5px solid blue">
@@ -24,8 +25,19 @@ const VideoDetail = () => {
             <ReactPlayer 
             url={`https://www.youtube.com/watch?v=${id}`}
             className="react-player"
-            controls
-            />
+            controls />
+            <Typography color="#fff" varient="h5" fontWeight="bold" p={2}>
+            {title}
+            </Typography>
+            <Stack direction="row" justifyContent="space-between" sx={{
+              color: "#fff"
+            }} py={1} px={2}>
+              <Link>
+              <Typography>
+                {channelTitle}
+              </Typography>
+              </Link>
+            </Stack>
           </Box>
         </Box>
       </Stack>
