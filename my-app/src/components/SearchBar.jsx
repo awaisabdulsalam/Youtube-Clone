@@ -7,7 +7,7 @@ import Search from '@mui/icons-material/Search';
 const SearchBar = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
-    const navigate = useNavigation();
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
