@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import { Stack, Box } from '@mui/material';
 import VideoCard from './VideoCard';
 import ChannelCard from './ChannelCard';
-const Videos = ({ videos }) => {
-  // console.log(videos);
+
+
+const Videos = ({ videos, direction }) => {
   return (
-    <Stack direction="row" flexWrap="wrap" justifyContent="center">
+    <Stack direction={ direction || "row" }flexWrap="wrap" justifyContent="center">
       {videos.map((items, index) => {
        return  (
        <Box key={index}>
@@ -21,6 +22,7 @@ const Videos = ({ videos }) => {
 
 Videos.propTypes = {
   videos: PropTypes.object.isRequired,
+  direction: PropTypes.string.isRequired,
 };
 // Videos.defaultProps = {
 //   videos: {}, // Provide a default object value here or any other appropriate default value
